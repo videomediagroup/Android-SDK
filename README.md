@@ -35,18 +35,19 @@ We have a little example on how to add the dependency.
 First of all add our Maven repository
 ```java
 repositories {
+ 
     maven {
-        url  "https://dl.bintray.com/videomediagroupsdk/vmgsdk"
+        url  "http://dl.bintray.com/videomediagroup/VMG"
     }
 }
 ```
 After this step you need to compile our gradle dependency inside your **Build.gradle** in the **Build.gradle (Module:app)**. Here you need to 
-add this line of code **compile 'com.VMG.sdklibrary:vmgsdklib:1.0.0@aar'**. Just like this:
+add this line of code **compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.2'**. Just like this:
 
 ```java
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.0'
+   compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.2'
 }
 ```
 You don't need to add:
@@ -84,13 +85,14 @@ android {
     }
 }
 repositories {
+ 
     maven {
-        url  "https://dl.bintray.com/videomediagroupsdk/vmgsdk"
+        url  "http://dl.bintray.com/videomediagroup/VMG"
     }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.0'
+   compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.2'
 }
 
 ```
