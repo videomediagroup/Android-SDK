@@ -8,7 +8,7 @@ Below follows a quick integration guide to help you implement our SDK in your ap
 
 ## Demo
 
-Checkout the repository and the demo app will simply build and run, take a look trough the code to see how the SDK is integrated and functions. 
+Checkout the repository and the demo app will simply build and run, take a look through the code to see how the SDK is integrated and the functions. 
 
 ## Integration
 
@@ -32,11 +32,17 @@ dependencies {
     compile 'com.VMG.Vmgsdklibrary:vmgsdklib:1.0.2'
 }
 ```
-There is no need to add special permissions in your `AndroidManifest.XML`, this will be done by our library.
+There is no need to add the following permissions in your `AndroidManifest.XML`:
+```java
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+ this will be done by our library.
  
 ### 2. Initialise SDK with config
 
-Inside your `MainActivity`, in the `onCreate()` method add the following code:
+Inside your `MainActivity`, in the `onCreate()` method, add the following code:
 
 ```java
 VMGConfig.loadConfig(getApplicationContext(), <app_id>);
@@ -46,7 +52,7 @@ This will make sure that the SDK configuration is loaded and available.
 
 ### 3. Add a fragment
 
-First add a webview to your fragment layout file and give it the size properties that you want it to have. Next create a new private variable for the of the `VMGBase` class
+First add a webview to your fragment layout file and give it the size properties that you want it to have. Next create a new private variable of the `VMGBase` class
 
 ```java
 private VMGBase vmgBase;
@@ -87,7 +93,7 @@ Inside scrollviews we need to get informed of the scroll sate of the view. By do
 ```
 
 
-In this case the `rootLayout` is the layout you use as the parent in your `layout XML file`, e.g.:
+In this case the `rootLayout` is the layout you use as the parent in your `layout.XML file`, e.g.:
 ```java
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
