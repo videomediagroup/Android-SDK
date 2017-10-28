@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relative"
+    tools:context="demo.videomediagroup.com.vmgdemo.Pages.InPageScrollWithLayout">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/testLorem2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:fontFamily="casual"
+                android:text="@string/lorem_ipsum"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:typeface="serif" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/testLorem3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:fontFamily="casual"
+                android:text="@string/lorem_ipsum"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:typeface="serif" />
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
