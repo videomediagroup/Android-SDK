@@ -80,7 +80,7 @@ method on the fragment with the `NestedScrollView` and the `WebView` or the `Vie
         mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                vmgBase.VMGScrollEvent(mNestedScrollView,mWebView);
+                mVmgBase.VMGScrollEvent(mNestedScrollView,mWebView);
             }
         });
 
@@ -132,7 +132,7 @@ We added the line of code in the **MainActivity** now we need to add some code i
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
             
-                vmgBase.VMGScrollEvent(mScrollView,mWebView);
+                mVmgBase.VMGScrollEvent(mScrollView,mWebView);
             }
         });
 
