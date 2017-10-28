@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.RelativeLayout;
 
 import com.vmg.BaseUtils.VMGBase;
 import com.yalantis.phoenix.PullToRefreshView;
@@ -22,11 +21,10 @@ import com.yalantis.phoenix.PullToRefreshView;
 import demo.videomediagroup.com.vmgdemo.R;
 
 public class ScrollFragment extends Fragment {
-    private WebView webView;
-    private VMGBase frag;
-    private NestedScrollView scroll;
-    private RelativeLayout rela;
-    private PullToRefreshView refreshScrollview;
+    private WebView mWebView;
+    private VMGBase mBase;
+    private NestedScrollView mScrollView;
+    private PullToRefreshView mRefreshScrollview;
 
     public ScrollFragment() {
     }
@@ -35,19 +33,19 @@ public class ScrollFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_scroll, container, false);
-        scroll = v.findViewById(R.id.scroll);
-        rela = v.findViewById(R.id.rela);
-        webView = v.findViewById(R.id.webView);
-        refreshScrollview = v.findViewById(R.id.refresScrollview);
-        refreshScrollview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+        mScrollView = v.findViewById(R.id.scroll);
+
+        mWebView = v.findViewById(R.id.webView);
+        mRefreshScrollview = v.findViewById(R.id.refresScrollview);
+        mRefreshScrollview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshScrollview.postDelayed(new Runnable() {
+                mRefreshScrollview.postDelayed(new Runnable() {
                     @Override
                     public void run() {
 
-                        refreshScrollview.setRefreshing(false);
-                        frag = new VMGBase(getActivity(), webView, 6370);
+                        mRefreshScrollview.setRefreshing(false);
+                        mBase = new VMGBase(getActivity(), mWebView, 6370);
 
                     }
                 }, 2000);
@@ -55,11 +53,11 @@ public class ScrollFragment extends Fragment {
             }
         });
 
-        frag = new VMGBase(getActivity(), webView, 6370);
-        scroll.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        mBase = new VMGBase(getActivity(), mWebView, 6370);
+        mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                frag.VMGScrollEvent(scrollY, scrollX, rela);
+                mBase.VMGScrollEvent(mScrollView, mWebView);
             }
         });
 

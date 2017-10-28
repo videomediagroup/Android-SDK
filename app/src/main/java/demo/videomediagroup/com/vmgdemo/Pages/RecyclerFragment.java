@@ -26,9 +26,9 @@ import demo.videomediagroup.com.vmgdemo.adapters.RecycleAdapter;
 
 public class RecyclerFragment extends Fragment {
     protected RecyclerView mRecyclerView;
-    private WebView webbs;
-    private VMGBase frag;
-    private PullToRefreshView refreshRecyclerview;
+    private WebView mWebView;
+    private VMGBase mBase;
+    private PullToRefreshView mRefreshRecyclerview;
 
     public RecyclerFragment() {
 
@@ -39,16 +39,16 @@ public class RecyclerFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_recycler, container, false);
         mRecyclerView = v.findViewById(R.id.recycler);
-        webbs = v.findViewById(R.id.webbs); // get the id of the webview
-        refreshRecyclerview = v.findViewById(R.id.refreshRecyclerview);
-        refreshRecyclerview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+        mWebView = v.findViewById(R.id.webbs); // get the id of the webview
+        mRefreshRecyclerview = v.findViewById(R.id.refreshRecyclerview);
+        mRefreshRecyclerview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshRecyclerview.postDelayed(new Runnable() {
+                mRefreshRecyclerview.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        refreshRecyclerview.setRefreshing(false);
-                        frag = new VMGBase(getActivity(), webbs, 6370);
+                        mRefreshRecyclerview.setRefreshing(false);
+                        mBase = new VMGBase(getActivity(), mWebView, 6370);
 
 
                     }
@@ -56,7 +56,7 @@ public class RecyclerFragment extends Fragment {
             }
         });
 
-        frag = new VMGBase(getActivity(), webbs, 6370);
+        mBase = new VMGBase(getActivity(), mWebView, 6370);
 
 
         return v;

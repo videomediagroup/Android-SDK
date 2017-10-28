@@ -17,8 +17,8 @@ import android.widget.TextView;
 import demo.videomediagroup.com.vmgdemo.R;
 
 public class HomeFragment extends Fragment {
-    private TextView txt_home;
-    private ImageView img_home;
+    private TextView mTxtHome;
+    private ImageView mImageHome;
 
     public HomeFragment() {
 
@@ -28,8 +28,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_home, container, false);
-        txt_home = v.findViewById(R.id.txt_home);
-        img_home = v.findViewById(R.id.img_home);
+        mTxtHome = v.findViewById(R.id.txt_home);
+        mImageHome = v.findViewById(R.id.img_home);
 
         return v;
     }

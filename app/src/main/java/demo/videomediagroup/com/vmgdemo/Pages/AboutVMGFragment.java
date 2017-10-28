@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vmg.BaseUtils.VMGBase;
@@ -25,12 +24,12 @@ import demo.videomediagroup.com.vmgdemo.R;
 
 
 public class AboutVMGFragment extends Fragment {
-    private ImageView img_logo_about;
-    private TextView text_about;
-    private WebView view;
-    private NestedScrollView about__scroll;
-    private LinearLayout layout_about;
-    private VMGBase frag;
+    private ImageView mImageLogo;
+    private TextView mTextAbout;
+    private WebView mWebView;
+    private NestedScrollView mScrollView;
+
+    private VMGBase mBase;
 
     public AboutVMGFragment() {
 
@@ -40,17 +39,16 @@ public class AboutVMGFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_about_vmg, container, false);
-        img_logo_about = v.findViewById(R.id.img_logo_about);
-        text_about = v.findViewById(R.id.text_about);
-        view = v.findViewById(R.id.web_about);
-        about__scroll = v.findViewById(R.id.scroll__about);
-        layout_about = v.findViewById(R.id.layout_about);
+        mImageLogo = v.findViewById(R.id.img_logo_about);
+        mTextAbout = v.findViewById(R.id.text_about);
+        mWebView = v.findViewById(R.id.web_about);
+        mScrollView = v.findViewById(R.id.scroll__about);
 
-        frag = new VMGBase(getActivity(), view, 6370);
-        about__scroll.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        mBase = new VMGBase(getActivity(), mWebView, 6370);
+        mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                frag.VMGScrollEvent(scrollY, scrollX, layout_about);
+                mBase.VMGScrollEvent(mScrollView, mWebView);
             }
         });
 

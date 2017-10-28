@@ -21,10 +21,10 @@ import com.yalantis.phoenix.PullToRefreshView;
 import demo.videomediagroup.com.vmgdemo.R;
 
 public class ListViewFragment extends Fragment {
-    private ListView listView;
-    private WebView webber;
-    private VMGBase frag;
-    private PullToRefreshView refreshListview;
+    private ListView mListView;
+    private WebView mWebView;
+    private VMGBase mBase;
+    private PullToRefreshView mRefreshListview;
 
     public ListViewFragment() {
 
@@ -35,23 +35,23 @@ public class ListViewFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View v = inflater.inflate(R.layout.fragment_list_view, container, false);
-        refreshListview = v.findViewById(R.id.refreshListview);
-        refreshListview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+        mRefreshListview = v.findViewById(R.id.refreshListview);
+        mRefreshListview.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshListview.postDelayed(new Runnable() {
+                mRefreshListview.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        refreshListview.setRefreshing(false);
-                        frag = new VMGBase(getActivity(), webber, 6370);
+                        mRefreshListview.setRefreshing(false);
+                        mBase = new VMGBase(getActivity(), mWebView, 6370);
 
                     }
                 }, 2000);
             }
         });
-        listView = v.findViewById(R.id.listView);
-        webber = v.findViewById(R.id.webber); // get the id of the custom webview
-        frag = new VMGBase(getActivity(), webber, 6370);
+        mListView = v.findViewById(R.id.listView);
+        mWebView = v.findViewById(R.id.webber); // get the id of the custom webview
+        mBase = new VMGBase(getActivity(), mWebView, 6370);
 
         return v;
     }
@@ -59,7 +59,7 @@ public class ListViewFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        setValues(listView);
+        setValues(mListView);
 
     }
 
